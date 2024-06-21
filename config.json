@@ -1,0 +1,22 @@
+{
+    "secrets": {
+        "hey": [
+            {"flask_key": "major1234"}
+        ]
+    },
+    "patch": {
+        "template_folder": "templates",
+        "static_folder": "static",
+        "patch_discos": "/media/thecodegenesis/drive",
+        "notasPatch": "notas/notas.json"
+    },
+    "runParametros": {
+        "host": "0.0.0.0",
+        "port": 5000,
+        "debug": "True"
+    },
+    "UsersAdmins":{
+        "belfenor": "belfenor",
+        "nissa": "nissa0792"
+    }
+}

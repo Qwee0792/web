@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% block head%}
+    {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link rel="stylesheet" href="/static/css/{{cssCustom}}">
+    <link rel="icon" type="image/x-icon" href="/static/img/icon.png">
+    <title>{{PageNamed}}</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5; /* Fondo general claro */
+        }
+
+        nav {
+            background-color: #fff; /* Fondo blanco para la barra de navegación */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera para darle profundidad */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 60px; /* Ajusta este valor si tu nav tiene un tamaño diferente */
+        }
+
+        nav a {
+            color: #333; /* Color de texto oscuro */
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            background-color: #f5f5f5; /* Fondo claro al pasar el cursor */
+            color: #000; /* Color de texto negro al pasar el cursor */
+        }
+
+        nav .nav-left, nav .nav-right {
+            display: flex;
+            align-items: center;
+        }
+
+        nav .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        nav .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            z-index: 1;
+        }
+
+        nav .dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            color: #333;
+        }
+
+        nav .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        nav .button {
+            background-color: #007bff; /* Color azul */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        nav .button-outline {
+            background-color: transparent;
+            color: #333;
+            border: 1px solid #333;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin-left: 10px;
+        }
+
+        nav .button:hover, nav .button-outline:hover {
+            opacity: 0.8;
+        }
+
+        main {
+            margin-top: 60px; /* Debe ser igual a la altura del nav */
+            padding: 20px;
+        }
+    </style>
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            var socket = io();
+
+            socket.on('connect', () => {
+                console.log('Connected to server');
+            });
+
+            socket.on('response_Data', (data) => {
+                console.log('Current Time:', data.hora);
+                document.getElementById("current-time").innerText = data.hora;
+                document.getElementById("cpu").innerText = data.cpu + "%";
+                document.getElementById("ram").innerText = data.ram + "%";
+                document.getElementById("disco").innerText = data.disco + "%";
+            });
+        });
+    </script>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="/">Home</a>
+            <a href="/logs">log</a>
+            <a href="/notas">Notas</a>
+            <p>1.0.0v</p>
+        </div>
+        <div class="nav-right">
+            <p id="current-time">Waiting for server time...</p>
+        </div>
+        
+    </nav>
+
+    <main>
+        {% block body %}
+        {% endblock %}
+    </main>
+</body>
+</html>

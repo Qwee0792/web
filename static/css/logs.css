@@ -1,0 +1,19 @@
+.container{
+    align-items: center;
+}
+.center{
+    background-color: black;
+    border-radius: 50px;
+    scale: 100%;
+    transition: 1s;
+
+}
+.center:hover{
+    scale: 101%;
+    transition: 1s;
+}
+pre{
+    padding: 50px;
+    font-size: large;
+    color: aliceblue;
+}

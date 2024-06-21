@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block head%}
+<meta http-equiv="refresh" content="10">
+{% endblock %}
+{% block body %}
+<div class="crear">
+    <a href="/nota/create">Añadir Nota</a>
+</div>
+<div class="fondo">
+    <div class="nota">
+        <h2>Notas</h2>
+    </div>
+    <div class="center">
+        <!-- Bucle principal para mostrar las notas -->
+        {% for id, notas_list in notas.items() %}
+            {% for nota in notas_list %}
+                <div class="blockRepetir">
+                    <h1>{{ nota.nombre }}</h1>
+                    <p>ID {{ id }}</p>
+                    <p>{{ nota.fecha }}</p><br>
+                    <pre>{{ nota.data | safe }}</pre>
+                </div>
+               
+            {% endfor %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
