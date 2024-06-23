@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<div class="conte">
+    <div class="center">
+        <form method="post" action="/cifrado/cifrar" enctype="multipart/form-data">
+            <label for="archivo">archivo</label>
+            <input type="file" name="archivo" id="archivo" required>
+            <label for="archivoKey">Par de claves</label>
+            <input type="file" name="archivoKey" id="archivoKey" required>
+            <input type="submit" value="Cifrar" class="as">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

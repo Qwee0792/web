@@ -1,0 +1,29 @@
+.center {
+    display: grid;
+    place-items: center; /* Centra horizontal y verticalmente */
+     /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+.button-link {
+    display: inline-block;
+    width: 300px;
+    padding: 20px 30px;
+    background-color: #4CAF50; /* Color de fondo del botón */
+    color: white; /* Color del texto */
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px; /* Bordes redondeados */
+    border: none; /* Sin borde */
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.button-link:hover {
+    background-color: #45a049; /* Color de fondo cuando se pasa el mouse */
+}
+.conte{
+    margin-bottom: 20px;
+}

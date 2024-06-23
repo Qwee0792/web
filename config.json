@@ -7,13 +7,13 @@
     "patch": {
         "template_folder": "templates",
         "static_folder": "static",
-        "patch_discos": "/media/thecodegenesis/drive",
+        "patch_discos": "/",
         "notasPatch": "notas/notas.json"
     },
     "runParametros": {
         "host": "0.0.0.0",
-        "port": 5000,
-        "debug": "True"
+        "port": 80,
+        "debug": "Flase"
     },
     "UsersAdmins":{
         "belfenor": "belfenor",

@@ -1,0 +1,49 @@
+.conte{
+    display: grid;
+    place-items: center; 
+}
+.center{
+    padding: 30px;
+    background-color: grey;
+    border-radius: 25px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    margin-bottom: 10px;
+}
+input{
+    margin-bottom: 10px;
+    background-color: transparent;
+    text-align: center;
+    color: aliceblue;
+    border-style: none;
+    font-size: large;
+}
+.as{
+    margin-top: 20px;
+    background-color: transparent;
+    border-style: none;
+    font-size: larger;
+    cursor: pointer;
+}
+textarea{
+    background-color: transparent;
+    color: white;
+    height: 300px;
+    width: 600px;
+    border-color: aliceblue;
+    border-radius: 25px;
+    padding: 10px;
+    font-size: larger;
+}
+input[type="file"]::file-selector-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
